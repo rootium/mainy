@@ -1,0 +1,2 @@
+Print ("Hi")
+user = input()
