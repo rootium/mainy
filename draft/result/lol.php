@@ -9,7 +9,7 @@ function summoner($server, $summonerName){
     if (file_exists($path)){
         $js = file_get_contents($path);
         $success = true;
-        echo "Hata0"
+        
     }
 
     else {
@@ -21,11 +21,11 @@ function summoner($server, $summonerName){
             fwrite($file, $js);
             fclose($file);
             $success = true;
-            echo "Hata1"
+            
         }
         else {
             $success = false;
-            echo "Hata2"
+            
         }
         global $times;
         $times++;
@@ -33,11 +33,11 @@ function summoner($server, $summonerName){
 
     if ($success){
         return json_decode($js, true);
-        echo "Hata3"
+        
     }
     else {
         return false;
-        echo "Hata4"
+        
     }
 }
 
@@ -46,21 +46,21 @@ function matches($region, $puuid, $queueId, $start = 0, $count = 100){
     $js = @file_get_contents("https://${region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?queue=${queueId}&start=${start}&count=${count}&api_key=${api_key}");
     if ($js) {
         $success = true;
-        echo "Hata5"
+        
     } else {
         $success = false;
-        echo "Hata6"
+        
     }
     global $times;
     $times++;
 
     if ($success){
         return json_decode($js, true);
-        echo "Hata7"
+        
     }
     else {
         return false;
-        echo "Hata8"
+        
     }
 }
 
@@ -69,7 +69,7 @@ function mmatch($region, $matchId){
     if (file_exists($path)){
         $js = file_get_contents($path);
         $success = true;
-        echo "Hata9"
+        
     }
     else {
         global $api_key;
@@ -79,11 +79,11 @@ function mmatch($region, $matchId){
             fwrite($file, $js);
             fclose($file);
             $success = true;
-            echo "Hata10"
+            
         }
         else {
             $success = false;
-            echo "Hata11"
+            
         }
         global $times;
         $times++;
@@ -91,11 +91,11 @@ function mmatch($region, $matchId){
 
     if ($success){
         return json_decode($js, true);
-        echo "Hata12"
+        
     }
     else {
         return false;
-        echo "Hata13"
+        
     }
 }
 
