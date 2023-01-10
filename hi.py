@@ -1,2 +1,0 @@
-Print ("Hi")
-user = input()
