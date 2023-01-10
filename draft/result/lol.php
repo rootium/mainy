@@ -9,7 +9,6 @@ function summoner($server, $summonerName){
     if (file_exists($path)){
         $js = file_get_contents($path);
         $success = true;
-        
     }
 
     else {
@@ -21,11 +20,9 @@ function summoner($server, $summonerName){
             fwrite($file, $js);
             fclose($file);
             $success = true;
-            
         }
         else {
             $success = false;
-            
         }
         global $times;
         $times++;
@@ -33,11 +30,9 @@ function summoner($server, $summonerName){
 
     if ($success){
         return json_decode($js, true);
-        
     }
     else {
         return false;
-        
     }
 }
 
@@ -46,21 +41,17 @@ function matches($region, $puuid, $queueId, $start = 0, $count = 100){
     $js = @file_get_contents("https://${region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?queue=${queueId}&start=${start}&count=${count}&api_key=${api_key}");
     if ($js) {
         $success = true;
-        
     } else {
         $success = false;
-        
     }
     global $times;
     $times++;
 
     if ($success){
         return json_decode($js, true);
-        
     }
     else {
         return false;
-        
     }
 }
 
@@ -69,7 +60,6 @@ function mmatch($region, $matchId){
     if (file_exists($path)){
         $js = file_get_contents($path);
         $success = true;
-        
     }
     else {
         global $api_key;
@@ -79,11 +69,9 @@ function mmatch($region, $matchId){
             fwrite($file, $js);
             fclose($file);
             $success = true;
-            
         }
         else {
             $success = false;
-            
         }
         global $times;
         $times++;
@@ -91,11 +79,9 @@ function mmatch($region, $matchId){
 
     if ($success){
         return json_decode($js, true);
-        
     }
     else {
         return false;
-        
     }
 }
 
